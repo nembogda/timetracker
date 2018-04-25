@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+     
+	<context:annotation-config />
+	<mvc:annotation-driven />
+	<context:component-scan base-package="com.timetracker.dao"></context:component-scan>
+	<context:component-scan base-package="com.timetracker.service"></context:component-scan>
+	<context:component-scan base-package="com.timetracker.controller"></context:component-scan>
+	
+	<bean id="ds" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+		<property name="url" value="URL"/>
+		<property name="username" value="UNAME"/>
+		<property name="password" value="PWD"/>
+		<property name="initialSize" value="3"/>
+		<property name="maxActive" value="10"/>
+	</bean>
+</beans>
